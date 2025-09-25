@@ -20,33 +20,19 @@
       --menu-hover:#E0D6CF;
       --menu-link-hover:#8B5E3C;
       --timeline-hover-bg:#FAF4EF;
-      --sand:#EDE6DA;
+      --sand:#D9B382;
     }
     *{box-sizing:border-box}
     body{margin:0;font-family:"Noto Sans TC", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;line-height:1.65;background:var(--bg);color:var(--ink)}
 
     header{padding:0}
-    .hero{min-height:520px;position:relative;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;text-align:center;color:#fff;overflow:hidden}
-    .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+    .hero{position:relative;}
+    .hero-img{width:100%;height:auto;display:block;object-fit:cover;max-height:420px}
+    .hero-extension{background:var(--sand);padding:40px 16px;text-align:center}
+    .hero-extension h1{margin:0 0 12px;font-size:clamp(32px,5vw,52px);letter-spacing:2px;color:#fff;text-shadow:2px 2px 6px rgba(0,0,0,0.5)}
+    .hero-extension p{margin:0;font-size:18px;color:#f5f3f0;text-shadow:1px 1px 4px rgba(0,0,0,0.4);letter-spacing:1px}
 
-    .hero-content{position:relative;z-index:1;padding:40px 16px}
-    .hero-content h1{margin:0 0 12px;font-size:clamp(32px,5vw,52px);letter-spacing:2px;color:#fff;text-shadow:2px 2px 6px rgba(0,0,0,0.45)}
-    .hero-content p{margin:0;font-size:18px;color:#fff;text-shadow:1px 1px 4px rgba(0,0,0,0.4);letter-spacing:1px}
-
-    /* 新增過渡層，避免文字擋住背景，同時用漸變與沙色銜接 */
-    .hero::after{
-      content:"";
-      position:absolute;
-      bottom:0;
-      left:0;
-      right:0;
-      height:200px;
-      background:linear-gradient(to bottom, rgba(237,230,218,0) 0%, var(--sand) 100%);
-    }
-
-    .sand-block{background:var(--sand);padding-top:0;position:relative}
-
-    .wrap{max-width:980px;margin:0 auto;padding:24px 16px;position:relative;z-index:1}
+    .wrap{max-width:980px;margin:0 auto;padding:24px 16px}
     h2{margin:26px 0 12px;padding-left:10px;border-left:6px solid var(--brand)}
 
     .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px;margin-bottom:28px}
@@ -104,66 +90,63 @@
 <body>
   <header>
     <div class="hero">
-      <!-- 使用提供的 ibb.co 連結作為背景圖 -->
-      <img class="hero-img" src="https://i.ibb.co/jP4yDc5t/Chat-GPT-Image-2025-9-24-02-42-11.png" alt="新竹一日遊插畫背景">
-      <div class="hero-content">
-        <h1>9/28 新竹一日遊</h1>
-        <p>集合 10:00｜含岩盤浴・購物休息・晚餐</p>
-      </div>
+      <img class="hero-img" src="https://i.ibb.co/JwyqQV29/Chat-GPT-Image-2025-9-24-02-42-11.png" alt="新竹一日遊插畫背景">
+    </div>
+    <div class="hero-extension">
+      <h1>9/28 新竹一日遊</h1>
+      <p>集合 10:00｜含岩盤浴・購物休息・晚餐</p>
     </div>
   </header>
 
-  <!-- 沙色色塊 -->
-  <div class="sand-block">
-    <main class="wrap">
-      <section class="grid">
-        <div class="card half">
-          <h2 style="background:#F3F2EF; padding:8px 12px; border-radius:8px; display:inline-block;">集合資訊</h2>
-          <img class="illustration" src="https://images.unsplash.com/photo-1528909514045-2fa4ac7a08ba?q=80&w=800" alt="集合插圖">
-          <div class="kvs">
-            <div class="kv-label">⏰ 集合時間</div><div>10:00</div>
-            <div class="kv-label">📍 集合地點</div><div>塔悠路 19 號</div>
-            <div class="kv-label">🚂 火車發車</div><div>10:29（建議提前 10–15 分到站）</div>
-          </div>
+  <main class="wrap">
+    <section class="grid">
+      <div class="card half">
+        <h2 style="background:#F3F2EF; padding:8px 12px; border-radius:8px; display:inline-block;">集合資訊</h2>
+        <img class="illustration" src="https://images.unsplash.com/photo-1528909514045-2fa4ac7a08ba?q=80&w=800" alt="集合插圖">
+        <div class="kvs">
+          <div class="kv-label">⏰ 集合時間</div><div>10:00</div>
+          <div class="kv-label">📍 集合地點</div><div>塔悠路 19 號</div>
+          <div class="kv-label">🚂 火車發車</div><div>10:29（建議提前 10–15 分到站）</div>
         </div>
-        <div class="card half">
-          <h2 style="background:#F3F2EF; padding:8px 12px; border-radius:8px; display:inline-block;">旅遊提醒</h2>
-          <div class="tips">
-            <ul class="clean">
-              <li>備少量現金／悠遊卡</li>
-              <li>岩盤浴貼心提醒
-                <ul>
-                  <li>為無水設施，無須帶泳衣</li>
-                  <li>體驗期間會流汗，建議可自備水壺並準備替換內衣褲</li>
-                  <li>無須自備盥洗用具，福湯有提供浴巾、毛巾、洗髮精、沐浴乳、吹風機</li>
-                  <li>若有潤髮、化妝等進階需求，則再自行準備用品即可</li>
-                </ul>
-              </li>
-            </ul>
-          </div>
+      </div>
+      <div class="card half">
+        <h2 style="background:#F3F2EF; padding:8px 12px; border-radius:8px; display:inline-block;">旅遊提醒</h2>
+        <div class="tips">
+          <ul class="clean">
+            <li>備少量現金／悠遊卡</li>
+            <li>岩盤浴貼心提醒
+              <ul>
+                <li>為無水設施，無須帶泳衣</li>
+                <li>體驗期間會流汗，建議可自備水壺並準備替換內衣褲</li>
+                <li>無須自備盥洗用具，福湯有提供浴巾、毛巾、洗髮精、沐浴乳、吹風機</li>
+                <li>若有潤髮、化妝等進階需求，則再自行準備用品即可</li>
+              </ul>
+            </li>
+          </ul>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="grid">
-        <div class="card" style="border:2px solid var(--divider); background-color:#fffdfc; padding:24px; box-shadow:0 4px 12px rgba(0,0,0,0.05);">
-          <h2 style="background:#F3F2EF; padding:8px 12px; border-radius:8px; display:inline-block;">詳細行程</h2>
-          <div class="timeline">
-            <div class="tl"><div class="time">10:00–10:05</div><div class="place">集合｜塔悠路 19 號</div></div>
-            <div class="tl"><div class="time">10:05–10:15</div><div class="place">步行前往 松山火車站</div></div>
-            <div class="tl"><div class="time">10:29–11:44</div><div class="place">台鐵 → 新竹火車站</div><div class="note">建議提前 10–15 分到站</div></div>
-            <div class="tl"><div class="time">12:00–13:00</div><div class="place">午餐｜葷素分食<br>🌱 素食 - 井家 /🍗 葷食 - 廟口鴨香飯<br><span class="menu-tag">📋 井家菜單：<a class="menu-link" href="https://sillybaby.tw/tea-house/" target="_blank"><span class="menu-link-strong">點我</span></a></span><br><span class="menu-tag">📋 廟口鴨香飯菜單：<a class="menu-link" href="https://www.facebook.com/photo?fbid=1164283809034606&set=pcb.1007674301362225&locale=zh_TW" target="_blank"><span class="menu-link-strong">點我</span></a></span></div></div>
-            <div class="tl"><div class="time">13:10–13:40</div><div class="place">點心飲料｜麥芽餅、綠豆沙、100 種味道蛋糕</div></div>
-            <div class="tl"><div class="time">14:05–14:45</div><div class="place">逛街、休息｜大魯閣湳雅廣場</div></div>
-            <div class="tl"><div class="time">15:00–17:00</div><div class="place">福湯岩盤浴</div><div class="note">可能加贈 0.5 小時，可滾動調整</div></div>
-            <div class="tl"><div class="time">18:00–19:00</div><div class="place">晚餐｜🌱 毋肉 1999（全素）<br><span class="menu-tag">📋 毋肉1999菜單：<a class="menu-link" href="https://www.facebook.com/groups/1522299691176707/posts/26366158066364192/" target="_blank"><span class="menu-link-strong">點我</span></a></span></div></div>
-            <div class="tl"><div class="time">19:20–21:00</div><div class="place">台鐵 → 松山車站</div></div>
-            <div class="tl"><div class="time">21:00–21:15</div><div class="place">回家</div></div>
-          </div>
+    <section class="grid">
+      <div class="card" style="border:2px solid var(--divider); background-color:#fffdfc; padding:24px; box-shadow:0 4px 12px rgba(0,0,0,0.05);">
+        <h2 style="background:#F3F2EF; padding:8px 12px; border-radius:8px; display:inline-block;">詳細行程</h2>
+        <div class="timeline">
+          <div class="tl"><div class="time">10:00–10:05</div><div class="place">集合｜塔悠路 19 號</div></div>
+          <div class="tl"><div class="time">10:05–10:15</div><div class="place">步行前往 松山火車站</div></div>
+          <div class="tl"><div class="time">10:29–11:44</div><div class="place">台鐵 → 新竹火車站</div><div class="note">建議提前 10–15 分到站</div></div>
+          <div class="tl"><div class="time">12:00–13:00</div><div class="place">午餐｜葷素分食<br>🌱 素食 - 井家 /🍗 葷食 - 廟口鴨香飯<br><span class="menu-tag">📋 井家菜單：<a class="menu-link" href="https://sillybaby.tw/tea-house/" target="_blank"><span class="menu-link-strong">點我</span></a></span><br><span class="menu-tag">📋 廟口鴨香飯菜單：<a class="menu-link" href="https://www.facebook.com/photo?fbid=1164283809034606&set=pcb.1007674301362225&locale=zh_TW" target="_blank"><span class="menu-link-strong">點我</span></a></span></div></div>
+          <div class="tl"><div class="time">13:10–13:40</div><div class="place">點心飲料｜麥芽餅、綠豆沙、100 種味道蛋糕</div></div>
+          <div class="tl"><div class="time">14:05–14:45</div><div class="place">逛街、休息｜大魯閣湳雅廣場</div></div>
+          <div class="tl"><div class="time">15:00–17:00</div><div class="place">福湯岩盤浴</div><div class="note">可能加贈 0.5 小時，可滾動調整</div></div>
+          <div class="tl"><div class="time">18:00–19:00</div><div class="place">晚餐｜🌱 毋肉 1999（全素）<br><span class="menu-tag">📋 毋肉1999菜單：<a class="menu-link" href="https://www.facebook.com/groups/1522299691176707/posts/26366158066364192/" target="_blank"><span class="menu-link-strong">點我</span></a></span></div></div>
+          <div class="tl"><div class="time">19:20–21:00</div><div class="place">台鐵 → 松山車站</div></div>
+          <div class="tl"><div class="time">21:00–21:15</div><div class="place">回家</div></div>
         </div>
-      </section>
-    </main>
-  </div>
+      </div>
+    </section>
 
+  </main>
 </body>
 </html>
+
 
